@@ -1,0 +1,79 @@
+﻿@model ModelEF.Model.Product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section header{
+    <i class="fa fa-save"></i>&nbsp; Chi tiết sản phẩm
+}
+
+<div>
+    <h4>Product Detail</h4>
+    <hr />
+    <dl class="dl-horizontal ">
+        <dt>
+            <lable class="control-label col-md-2">Loại Sản Phẩm</lable>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Tên Sản Phẩm</lable>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Đơn Giá</lable>
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0 vnđ}", Model.UnitCost)
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Số Lượng</lable>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Hình Ảnh</lable>
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ProductImg)" alt="" height=80 width=130 />
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Chi Tiết </lable>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDes)
+        </dd>
+
+        <dt>
+            <lable class="control-label col-md-2">Trạng Thái</lable>
+        </dt>
+
+        <dd>
+            <a href="#" class="btn btn-success btn-active">
+                @(Model.ProductStatus? "Còn hàng":"Hết hàng")
+            </a>
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-6">
+    @Html.ActionLink("Quay Lại", "Index", "Product", new { @class = "btn btn-primary" })
+</div>
