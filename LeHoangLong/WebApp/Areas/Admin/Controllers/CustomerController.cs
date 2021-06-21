@@ -95,7 +95,7 @@ namespace WebApp.Areas.Admin.Controllers
             return View();
         }
         [HttpDelete]
-        [ValidateAntiForgeryToken]
+     
         public ActionResult Delete(string username)
         {
             var dao = new CustomerDao().Delete(username);
