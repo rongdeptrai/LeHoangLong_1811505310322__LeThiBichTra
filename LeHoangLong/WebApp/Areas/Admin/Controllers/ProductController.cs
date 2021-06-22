@@ -38,7 +38,6 @@ namespace WebApp.Areas.Admin.Controllers
             return View();
         }
 
-
         [Route("Create")]
         [HttpPost]
         public ActionResult Create(Product product, HttpPostedFileBase imgfile)
